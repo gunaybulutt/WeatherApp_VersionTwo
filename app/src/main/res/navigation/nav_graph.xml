@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/forecastFragment">
+
+    <fragment
+        android:id="@+id/stateFragment"
+        android:name="com.gunay.mvvm_hilt_repo_coroutines_retrofit_test_weatherapp.view.StateFragment"
+        android:label="fragment_state"
+        tools:layout="@layout/fragment_state" >
+        <action
+            android:id="@+id/action_stateFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="com.gunay.mvvm_hilt_repo_coroutines_retrofit_test_weatherapp.view.ForecastFragment"
+        android:label="ForecastFragment" >
+        <action
+            android:id="@+id/action_forecastFragment_to_stateFragment"
+            app:destination="@id/stateFragment" />
+        <argument
+            android:name="cityName"
+            app:argType="string"
+            android:defaultValue='" "' />
+    </fragment>
+</navigation>
